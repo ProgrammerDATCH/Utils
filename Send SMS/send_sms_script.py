@@ -7,14 +7,16 @@ import json
 load_dotenv()
 
 message = sys.argv[1] if len(sys.argv) > 1 else 'Hello from DATCH'
+phone = sys.argv[2] if len(sys.argv) > 1 else '078XXXXXXX'
 
 username = os.getenv('USER_NAME')
 password = os.getenv('PASSWORD')
+sender = os.getenv('SENDER')
 
 data = {
-    'recipients': '0781733332',
+    'recipients': phone,
     'message': message,
-    'sender': '+250781733332'
+    'sender': sender
 }
 
 r = requests.post(
